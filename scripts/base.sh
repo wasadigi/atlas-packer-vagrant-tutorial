@@ -10,6 +10,7 @@ apt-get -y install facter linux-headers-$(uname -r) build-essential zlib1g-dev l
 echo 'UseDNS no' >> /etc/ssh/sshd_config
 
 # Remove 5s grub timeout to speed up booting
+# OLI: I have added GRUB_CMDLINE_LINUX="net.ifnames=0", as per https://gist.github.com/brbsix/b70413dec907906ef659
 cat <<EOF > /etc/default/grub
 # If you change this file, run 'update-grub' afterwards to update
 # /boot/grub/grub.cfg.
@@ -17,8 +18,8 @@ cat <<EOF > /etc/default/grub
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=0
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
-GRUB_CMDLINE_LINUX_DEFAULT="quiet"
-GRUB_CMDLINE_LINUX="debian-installer=en_US"
+#GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+GRUB_CMDLINE_LINUX="debian-installer=en_US net.ifnames=0 biosdevname=0"
 EOF
 
 update-grub
