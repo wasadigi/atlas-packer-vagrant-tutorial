@@ -13,3 +13,10 @@ sudo apt-get install -y apache2 git
 
 sudo curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
 sudo apt-get install -y nodejs
+
+sudo curl -fsSL https://get.docker.com/ | sh
+sudo usermod -aG docker vagrant
+
+sudo docker pull httpd:2.4
+sudo docker pull node:4
+sudo docker pull mongo:3

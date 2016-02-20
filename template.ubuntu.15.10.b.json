@@ -4,7 +4,8 @@
       "vcs": false,
 			"exclude": [
 				"packer_cache",
-				"output-virtualbox-iso"
+				"output-virtualbox-iso",
+				"*.box"
 			]
     },
     "variables": {
@@ -17,7 +18,7 @@
             "scripts": [
                 "scripts/base.sh",
                 "scripts/virtualbox.sh",
-                "scripts/java.sh",
+                "scripts/heigvd.sh",
                 "scripts/vagrant.sh",
                 "scripts/dep.sh",
                 "scripts/cleanup.sh",
@@ -82,7 +83,7 @@
             "artifact_type": "vagrant.box",
             "metadata": {
                 "provider": "virtualbox",
-                "version": "0.2.0"
+                "version": "0.3.0"
             }
         }]
     ]
